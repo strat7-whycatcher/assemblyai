@@ -18,6 +18,7 @@ class TranscriptEndpoint
     protected ?int $audioEndAt = null;
     protected bool $speakerLabels = true;
     protected bool $languageDetection = true;
+    protected ?string $languageCode = null;
 
     public function __construct(
         protected Api $api
@@ -103,6 +104,7 @@ class TranscriptEndpoint
             'audio_end_at' => $this->audioEndAt,
             'speaker_labels' => $this->speakerLabels,
             'language_detection' => $this->languageDetection,
+            'language_code' => $this->languageCode,
         ])->whereNotNull()->toArray();
     }
 }

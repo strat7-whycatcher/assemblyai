@@ -21,6 +21,7 @@ class Transcript
         public ?float $audio_duration = null,
         public ?float $confidence = null,
         public ?string $text = null,
+        public ?string $translation = null,
         public ?array $utterances = null,
         public ?int $webhook_status_code = null,
         public ?array $words = null,
@@ -28,6 +29,7 @@ class Transcript
         // public ?bool $speed_boost = null,
         public ?bool $speaker_labels = null,
         public ?bool $language_detection = null,
+        public ?string $language_code = null,
         ...$arguments
     ) {
     }
