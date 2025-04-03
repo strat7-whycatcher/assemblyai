@@ -13,7 +13,7 @@ class Api
     public HttpClient $httpClient;
     public Response $latestResponse;
 
-    protected string $baseUrl = 'https://api.eu.assemblyai.com';
+    protected string $baseUrl = 'https://api.eu.assemblyai.com/v2/';
 
     public function __construct(
         protected string $token
