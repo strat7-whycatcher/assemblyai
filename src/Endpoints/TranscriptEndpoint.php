@@ -17,6 +17,7 @@ class TranscriptEndpoint
     protected ?int $audioStartFrom = null;
     protected ?int $audioEndAt = null;
     protected bool $speakerLabels = true;
+    protected ?int $speakersExpected = null;
     protected bool $languageDetection = true;
     protected ?string $languageCode = null;
 
@@ -72,10 +73,11 @@ class TranscriptEndpoint
         return $this->startFrom($from)->endAt($to);
     }
 
-    public function create(string $audioUrl, string $webhookUrl = null, bool $speakerLabels = true): Transcript
+    public function create(string $audioUrl, string $webhookUrl = null, bool $speakerLabels = true, int $speakersExpected = null): Transcript
     {
         $this->audioUrl = $audioUrl;
         $this->speakerLabels = $speakerLabels;
+        $this->speakersExpected = $speakersExpected;
         $this->webhookUrl = $webhookUrl;
 
         $response = $this->api->post("transcript", $this->query())->json();
@@ -103,6 +105,7 @@ class TranscriptEndpoint
             'audio_start_from' => $this->audioStartFrom,
             'audio_end_at' => $this->audioEndAt,
             'speaker_labels' => $this->speakerLabels,
+            'speakers_expected' => $this->speakersExpected,
             'language_detection' => $this->languageDetection,
             'language_code' => $this->languageCode,
         ])->whereNotNull()->toArray();

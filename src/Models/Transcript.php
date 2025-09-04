@@ -28,6 +28,7 @@ class Transcript
         public ?string $error = null,
         // public ?bool $speed_boost = null,
         public ?bool $speaker_labels = null,
+        public ?int $speakers_expected = null,
         public ?bool $language_detection = null,
         public ?string $language_code = null,
         ...$arguments
